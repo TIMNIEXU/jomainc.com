@@ -1,1 +1,0 @@
-export default function Tracking(){return <main className="container"><h1 className="page-title">Shipment Tracking</h1><p className="subtitle">MVP tracking page. Next upgrade: container tracking API integration.</p><div className="panel"><input className="input" placeholder="Container / MBL / HBL / PO" /></div></main>}
