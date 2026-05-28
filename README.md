@@ -1,23 +1,43 @@
-# Joma Logistics Incorporated AI Website - AI OCR Customs Engine v4
+# Joma Logistics Incorporated AI Website
 
-Production-ready Vercel Blob upload plus AI OCR Customs Review.
+Vercel-ready Next.js website for www.jomainc.com.
 
-Required Vercel Environment Variables:
+## Pages
 
-- BLOB_READ_WRITE_TOKEN
-- OPENAI_API_KEY
+- Home
+- AI Customs Chatbot
+- Upload Documents with Vercel Blob storage
+- AI Duty Calculator
+- Shipment Tracking
+- Contact
 
-Optional:
+## Production Upload Setup
 
-- OPENAI_OCR_MODEL=gpt-4.1-mini
+This version includes a real upload API route:
 
-Deploy steps:
+`app/api/upload/route.js`
 
-1. Upload/replace all files in GitHub.
-2. In Vercel project Environment Variables, add BLOB_READ_WRITE_TOKEN and OPENAI_API_KEY for Production and Preview.
-3. Redeploy the latest Production deployment.
-4. Test `/upload-documents`.
+Files upload to Vercel Blob and are grouped under:
 
-Workflow:
+`shipments/{Case ID}/filename`
 
-Upload document → save to Vercel Blob → run AI OCR Customs Review → returns structured JSON for customs intake.
+### Required Vercel setup
+
+1. Go to Vercel project dashboard.
+2. Open **Storage**.
+3. Create **Blob** store.
+4. Connect it to this project.
+5. Vercel will automatically add:
+
+`BLOB_READ_WRITE_TOKEN`
+
+6. Redeploy the project.
+
+After redeploy, the Upload Documents page will store real files in Vercel Blob.
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
