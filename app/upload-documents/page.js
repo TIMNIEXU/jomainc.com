@@ -1,0 +1,4 @@
+'use client';
+import {useState} from 'react';
+import {Shell} from '../components';
+export default function Upload(){const [files,setFiles]=useState([]);return <Shell>{()=> <main><section className="page-hero"><h1>Upload Shipment Documents</h1><p>Commercial Invoice, Packing List, BOL, Arrival Notice, ISF and POA.</p></section><section className="section"><div className="upload"><h2>Drag & Drop Documents</h2><p className="section-sub">This front-end demo stores selected file names only. Connect it to Vercel Blob, Google Drive or AWS S3 for production upload storage.</p><input type="file" multiple onChange={e=>setFiles(Array.from(e.target.files||[]))}/><div className="list">{files.map((f,i)=><div className="dash-row" key={i}><span>{f.name}</span><b>{Math.round(f.size/1024)} KB</b></div>)}</div></div></section></main>}</Shell>}
