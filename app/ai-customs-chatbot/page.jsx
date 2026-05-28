@@ -1,1 +1,0 @@
-export default function Chatbot(){return <main className="container"><h1 className="page-title">AI Customs Chatbot</h1><p className="subtitle">MVP chatbot page. Next upgrade: connect OpenAI API for customs document review and duty guidance.</p><div className="panel"><input className="input" placeholder="Ask about HTS, duty, bond, FDA, ISF..." /></div></main>}
