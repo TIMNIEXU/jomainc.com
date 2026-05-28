@@ -3,53 +3,54 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
-function safeName(name = 'shipment-document') {
+function safeName(name = 'file') {
   return name
-    .replace(/[^a-zA-Z0-9._\-\u4e00-\u9fa5 ]/g, '')
-    .replace(/\s+/g, '-')
-    .slice(0, 120);
+    .replace(/[^a-zA-Z0-9._\-\u4e00-\u9fa5]/g, '_')
+    .slice(0, 160);
 }
 
 export async function POST(request) {
   try {
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      return NextResponse.json(
+        { ok: false, error: 'Missing BLOB_READ_WRITE_TOKEN in Vercel Environment Variables.' },
+        { status: 500 }
+      );
+    }
+
     const formData = await request.formData();
-    const files = formData.getAll('files');
-    const caseId = formData.get('caseId') || `JOMA-${Date.now()}`;
+    const file = formData.get('file');
+    const caseIdRaw = formData.get('caseId') || 'uncategorized';
 
-    if (!files.length) {
-      return NextResponse.json({ error: 'No files received.' }, { status: 400 });
+    if (!file || typeof file === 'string') {
+      return NextResponse.json({ ok: false, error: 'No file received.' }, { status: 400 });
     }
 
-    const uploaded = [];
+    const caseId = safeName(String(caseIdRaw).trim() || 'uncategorized');
+    const fileName = safeName(file.name || 'upload.bin');
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const pathname = `shipments/${caseId}/${timestamp}-${fileName}`;
 
-    for (const file of files) {
-      if (!file || typeof file === 'string') continue;
-
-      const pathname = `shipments/${caseId}/${Date.now()}-${safeName(file.name)}`;
-
-      const blob = await put(pathname, file, {
-        access: 'public',
-        addRandomSuffix: false,
-      });
-
-      uploaded.push({
-        name: file.name,
-        size: file.size,
-        type: file.type,
-        url: blob.url,
-        pathname: blob.pathname,
-      });
-    }
+    const blob = await put(pathname, file, {
+      access: 'public',
+      addRandomSuffix: false,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
 
     return NextResponse.json({
       ok: true,
+      fileName,
       caseId,
-      uploaded,
+      size: file.size,
+      type: file.type || 'application/octet-stream',
+      url: blob.url,
+      pathname: blob.pathname,
+      uploadedAt: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Upload failed:', error);
+    console.error('BLOB_UPLOAD_ERROR', error);
     return NextResponse.json(
-      { error: 'Upload failed. Check Vercel Blob token and server logs.' },
+      { ok: false, error: error?.message || 'Upload failed.' },
       { status: 500 }
     );
   }
