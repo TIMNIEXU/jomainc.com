@@ -1,1 +1,0 @@
-export default function DutyCalculator(){return <main className="container"><h1 className="page-title">AI Duty Calculator</h1><p className="subtitle">MVP calculator page. Next upgrade: HTS database, MPF, HMF, 301, 122 tariff and ADD/CVD risk checks.</p><div className="panel"><p>Enter shipment value, HTS code, origin country and duty rate in the next version.</p></div></main>}
