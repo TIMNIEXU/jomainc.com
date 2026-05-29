@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jomainc.com — Efficient Logistics. Smarter Customs. AI-Powered Solutions.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#07111f;
+  --navy2:#0c1d35;
+  --navy3:#122548;
+  --navy4:#1a3260;
+  --cyan:#00c8e0;
+  --cyan2:#00a8be;
+  --cyan-glow:rgba(0,200,224,0.15);
+  --gold:#f5a623;
+  --gold2:#ffd980;
+  --white:#ffffff;
+  --off:#e8eef5;
+  --muted:#7a95b0;
+  --muted2:#4d6a85;
+  --glass:rgba(255,255,255,0.05);
+  --glass2:rgba(255,255,255,0.09);
+  --border:rgba(255,255,255,0.09);
+  --border2:rgba(0,200,224,0.25);
+  --r:14px;
+  --r-sm:8px;
+  --r-lg:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,.brand-font{font-family:'Syne',sans-serif}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--navy4);border-radius:3px}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid var(--border);background:rgba(7,17,31,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--cyan),var(--cyan2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:13px;color:var(--navy);letter-spacing:-.5px;flex-shrink:0}
+.logo-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:-.2px}
+.logo-name em{color:var(--cyan);font-style:normal}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.83rem;color:var(--muted);transition:color .2s;letter-spacing:.2px}
+.nav-links a:hover{color:var(--white)}
+.nav-actions{display:flex;gap:.6rem;align-items:center}
+.btn-nav-ghost{background:transparent;border:0.5px solid var(--border);color:var(--muted);font-size:.82rem;padding:.45rem 1rem;border-radius:var(--r-sm);transition:all .2s}
+.btn-nav-ghost:hover{border-color:rgba(255,255,255,.25);color:var(--white)}
+.btn-nav-cta{background:var(--cyan);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;padding:.48rem 1.1rem;border-radius:var(--r-sm);border:none;letter-spacing:.3px;transition:all .2s}
+.btn-nav-cta:hover{background:var(--cyan2);transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,200,224,0.08),transparent),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(18,37,72,0.8),transparent)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.35}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(0,200,224,0.1);border:0.5px solid var(--border2);padding:.38rem 1rem;border-radius:50px;font-size:.73rem;color:var(--cyan);letter-spacing:.7px;text-transform:uppercase;font-family:'Syne',sans-serif;margin-bottom:1.8rem}
+.blink-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;line-height:1.07;letter-spacing:-2px;margin-bottom:1.4rem}
+.hero h1 .hl{color:var(--cyan)}
+.hero h1 .hl2{color:var(--gold)}
+.slogan{font-size:1rem;color:var(--muted);margin-bottom:2.5rem;font-weight:300;letter-spacing:.3px}
+.slogan strong{color:rgba(255,255,255,.7);font-weight:400}
+.hero-cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-bottom:1rem}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;padding:.75rem 1.6rem;border-radius:var(--r-sm);border:none;letter-spacing:.3px;transition:all .22s}
+.btn-hero-primary:hover{background:var(--cyan2);transform:translateY(-2px)}
+.btn-hero-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);font-size:.85rem;padding:.73rem 1.4rem;border-radius:var(--r-sm);border:0.5px solid rgba(255,255,255,.22);transition:all .22s}
+.btn-hero-outline:hover{background:var(--glass2);border-color:rgba(255,255,255,.4)}
+.btn-hero-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;padding:.73rem 1.4rem;border-radius:var(--r-sm);border:none;letter-spacing:.3px;transition:all .22s}
+.btn-hero-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3.5rem;padding-top:3rem;border-top:0.5px solid var(--border);flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-num{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:var(--cyan)}
+.hstat-label{font-size:.73rem;color:var(--muted);letter-spacing:.4px;margin-top:3px}
+
+/* ─── SECTION WRAPPER ─── */
+.section{padding:5rem 2.5rem}
+.section-inner{max-width:1160px;margin:0 auto}
+.section-label{font-size:.7rem;color:var(--cyan);letter-spacing:1.8px;text-transform:uppercase;font-family:'Syne',sans-serif;margin-bottom:.6rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.6px;margin-bottom:.7rem}
+.section-sub{font-size:.95rem;color:var(--muted);max-width:520px;line-height:1.7;font-weight:300}
+
+/* ─── SERVICES ─── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem;margin-top:2.5rem}
+.svc-card{background:var(--navy2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.7rem;position:relative;overflow:hidden;transition:all .25s;cursor:pointer}
+.svc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan-glow),transparent);opacity:0;transition:opacity .3s}
+.svc-card:hover{border-color:var(--border2);transform:translateY(-4px)}
+.svc-card:hover::after{opacity:1}
+.svc-icon{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.1rem;position:relative;z-index:1}
+.ic-ocean{background:rgba(0,200,224,.13);color:var(--cyan)}
+.ic-air{background:rgba(245,166,35,.13);color:var(--gold)}
+.ic-customs{background:rgba(100,180,255,.13);color:#64b4ff}
+.ic-fba{background:rgba(72,195,120,.13);color:#48c378}
+.ic-truck{background:rgba(237,140,60,.13);color:#ed8c3c}
+.ic-aidoc{background:rgba(160,125,240,.13);color:#a07df0}
+.svc-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.45rem;letter-spacing:-.2px;position:relative;z-index:1}
+.svc-card p{font-size:.83rem;color:var(--muted);line-height:1.65;font-weight:300;position:relative;z-index:1}
+.svc-link{display:inline-flex;align-items:center;gap:4px;margin-top:.9rem;font-size:.73rem;color:var(--cyan);letter-spacing:.3px;font-family:'Syne',sans-serif;position:relative;z-index:1}
+
+/* ─── AI PLATFORM ─── */
+.ai-platform{background:var(--navy2);border:0.5px solid var(--border2);border-radius:var(--r-lg);padding:2.5rem;position:relative;overflow:hidden;max-width:1160px;margin:0 auto}
+.ai-platform::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,200,224,.09),transparent 65%);border-radius:50%;pointer-events:none}
+.ai-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem}
+.ai-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,200,224,.1);border:0.5px solid var(--border2);padding:.32rem .85rem;border-radius:50px;font-size:.7rem;color:var(--cyan);font-family:'Syne',sans-serif;letter-spacing:.6px;margin-bottom:.8rem}
+.ai-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:-.5px}
+.ai-title span{color:var(--cyan)}
+.ai-desc{font-size:.88rem;color:var(--muted);max-width:440px;line-height:1.65;font-weight:300;margin-top:.5rem}
+.ai-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:780px){.ai-layout{grid-template-columns:1fr}.nav-links{display:none}}
+
+/* Upload Zone */
+.upload-zone{border:1.5px dashed rgba(0,200,224,.3);border-radius:var(--r);padding:2rem;text-align:center;background:rgba(0,200,224,.03);transition:all .25s;cursor:pointer}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--cyan);background:rgba(0,200,224,.07)}
+.upload-icon{font-size:36px;color:var(--cyan);margin-bottom:.8rem;opacity:.8}
+.upload-title{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:600;margin-bottom:.35rem}
+.upload-sub{font-size:.78rem;color:var(--muted);line-height:1.5}
+.upload-types{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+.doc-tag{background:var(--glass);border:0.5px solid var(--border);padding:.25rem .65rem;border-radius:4px;font-size:.7rem;color:var(--muted);font-family:'Syne',sans-serif;letter-spacing:.3px}
+.uploaded-files{margin-top:1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.file-item{display:flex;align-items:center;gap:8px;background:rgba(0,200,224,.08);border:0.5px solid var(--border2);border-radius:var(--r-sm);padding:.5rem .8rem}
+.file-item i{font-size:15px;color:var(--cyan)}
+.file-name{font-size:.78rem;flex:1;color:var(--white)}
+.file-status{font-size:.7rem;color:#48c378;font-family:'Syne',sans-serif}
+
+/* Analysis Panel */
+.analysis-panel{background:var(--navy);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden}
+.panel-tabs{display:flex;border-bottom:0.5px solid var(--border)}
+.ptab{flex:1;padding:.65rem;font-size:.75rem;font-family:'Syne',sans-serif;background:transparent;border:none;color:var(--muted);letter-spacing:.3px;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-0.5px}
+.ptab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.ptab:hover:not(.active){color:rgba(255,255,255,.6)}
+.panel-body{padding:1.2rem;min-height:320px}
+.extracted-field{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;padding:.55rem 0;border-bottom:0.5px solid var(--border)}
+.extracted-field:last-child{border-bottom:none}
+.ef-label{font-size:.72rem;color:var(--muted);letter-spacing:.4px;font-family:'Syne',sans-serif;min-width:110px;padding-top:1px}
+.ef-value{font-size:.82rem;color:var(--white);text-align:right;font-weight:400}
+.ef-tag{font-size:.68rem;padding:.15rem .5rem;border-radius:4px;font-family:'Syne',sans-serif;letter-spacing:.3px}
+.tag-ok{background:rgba(72,195,120,.15);color:#48c378}
+.tag-warn{background:rgba(245,166,35,.15);color:var(--gold)}
+.tag-risk{background:rgba(237,84,84,.15);color:#ed5454}
+
+/* Risk Panel */
+.risk-item{display:flex;gap:10px;padding:.7rem 0;border-bottom:0.5px solid var(--border)}
+.risk-item:last-child{border-bottom:none}
+.risk-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.dot-red{background:#ed5454}
+.dot-yellow{background:var(--gold)}
+.dot-green{background:#48c378}
+.risk-text{font-size:.82rem;line-height:1.5}
+.risk-text strong{color:var(--white);font-weight:500}
+.risk-text span{color:var(--muted);font-size:.77rem;display:block}
+
+/* Chat Panel */
+.chat-msgs{display:flex;flex-direction:column;gap:.7rem;max-height:250px;overflow-y:auto;padding-bottom:.5rem}
+.chat-msgs::-webkit-scrollbar{width:3px}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--navy4)}
+.cmsg{display:flex;gap:8px;align-items:flex-start}
+.cmsg.user{flex-direction:row-reverse}
+.cmsg-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;font-family:'Syne',sans-serif}
+.av-ai{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:var(--navy)}
+.av-user{background:var(--navy3);border:0.5px solid var(--border);color:var(--muted)}
+.cmsg-bubble{background:var(--glass);border:0.5px solid var(--border);border-radius:0 10px 10px 10px;padding:.55rem .8rem;font-size:.8rem;line-height:1.55;max-width:85%}
+.cmsg.user .cmsg-bubble{background:rgba(0,200,224,.1);border-color:var(--border2);border-radius:10px 0 10px 10px}
+.cmsg-bubble strong{color:var(--cyan);font-weight:500}
+.chat-input-wrap{display:flex;gap:.5rem;margin-top:.8rem;padding-top:.8rem;border-top:0.5px solid var(--border)}
+.chat-inp{flex:1;background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r-sm);padding:.5rem .8rem;font-size:.8rem;color:var(--white);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.chat-inp::placeholder{color:var(--muted2)}
+.chat-inp:focus{border-color:var(--border2)}
+.chat-send-btn{background:var(--cyan);color:var(--navy);border:none;border-radius:var(--r-sm);width:32px;height:32px;display:flex;align-items:center;justify-content:center;transition:opacity .2s}
+.chat-send-btn:hover{opacity:.8}
+.quick-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.qchip{background:var(--glass);border:0.5px solid var(--border);padding:.28rem .7rem;border-radius:50px;font-size:.71rem;color:var(--muted);cursor:pointer;transition:all .2s}
+.qchip:hover{background:rgba(0,200,224,.1);border-color:var(--border2);color:var(--cyan)}
+
+/* Quote Summary */
+.quote-box{background:rgba(0,200,224,.06);border:0.5px solid var(--border2);border-radius:var(--r);padding:1.2rem;margin-top:1rem}
+.qb-title{font-family:'Syne',sans-serif;font-size:.8rem;color:var(--cyan);letter-spacing:.5px;margin-bottom:.8rem;display:flex;align-items:center;gap:6px}
+.qb-row{display:flex;justify-content:space-between;padding:.35rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.8rem}
+.qb-row:last-child{border-bottom:none}
+.qb-key{color:var(--muted)}
+.qb-val{color:var(--white);font-weight:500}
+
+/* Analyze Button */
+.btn-analyze{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;padding:.8rem;border-radius:var(--r-sm);border:none;letter-spacing:.4px;transition:all .25s;margin-top:1rem}
+.btn-analyze:hover{opacity:.88;transform:translateY(-1px)}
+.btn-analyze:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.progress-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:.6rem;display:none}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--cyan2));width:0%;transition:width .1s linear;border-radius:2px}
+
+/* ─── INDUSTRIES ─── */
+.industries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2.5rem}
+.ind-card{background:var(--navy2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .25s}
+.ind-card:hover{border-color:rgba(255,255,255,.2);transform:translateY(-3px)}
+.ind-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1rem}
+.ind-card h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:.4rem}
+.ind-card p{font-size:.81rem;color:var(--muted);line-height:1.6;font-weight:300}
+.ind-list{list-style:none;margin-top:.8rem;display:flex;flex-direction:column;gap:.3rem}
+.ind-list li{font-size:.77rem;color:var(--muted);display:flex;align-items:center;gap:5px}
+.ind-list li::before{content:'';width:4px;height:4px;background:var(--cyan);border-radius:50%;flex-shrink:0}
+
+/* ─── WHY JOMA ─── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem}
+.why-card{background:var(--navy2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.4rem;display:flex;gap:12px;align-items:flex-start;transition:all .25s}
+.why-card:hover{border-color:var(--border2)}
+.why-icon-wrap{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.why-card h4{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:.3rem}
+.why-card p{font-size:.79rem;color:var(--muted);line-height:1.55;font-weight:300}
+
+/* ─── QUOTE FORM ─── */
+.quote-section{background:var(--navy2);border-radius:var(--r-lg);border:0.5px solid var(--border);padding:2.5rem;max-width:760px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:.74rem;color:var(--muted);letter-spacing:.4px;font-family:'Syne',sans-serif}
+.form-input,.form-select,.form-textarea{background:var(--navy);border:0.5px solid var(--border);border-radius:var(--r-sm);padding:.6rem .9rem;font-size:.85rem;color:var(--white);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--border2)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--muted2)}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a95b0' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center}
+.form-select option{background:var(--navy2)}
+.form-textarea{resize:vertical;min-height:80px}
+.btn-submit{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--cyan);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;padding:.82rem;border-radius:var(--r-sm);border:none;letter-spacing:.4px;margin-top:1.2rem;transition:all .25s}
+.btn-submit:hover{background:var(--cyan2);transform:translateY(-1px)}
+
+/* ─── COMPLIANCE ─── */
+.compliance-box{background:rgba(245,166,35,.05);border:0.5px solid rgba(245,166,35,.25);border-radius:var(--r);padding:1.5rem;max-width:900px;margin:0 auto}
+.compliance-title{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:600;color:var(--gold);margin-bottom:.8rem}
+.compliance-text{font-size:.79rem;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ─── FOOTER ─── */
+footer{background:var(--navy2);border-top:0.5px solid var(--border);padding:3rem 2.5rem 2rem}
+.footer-inner{max-width:1160px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+@media(max-width:760px){.footer-top{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}}
+.footer-brand-block .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.footer-brand-block p{font-size:.81rem;color:var(--muted);line-height:1.7;max-width:260px;font-weight:300}
+.footer-contact{margin-top:1rem;display:flex;flex-direction:column;gap:.4rem}
+.footer-contact a,.footer-contact span{font-size:.79rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s}
+.footer-contact a:hover{color:var(--cyan)}
+.footer-contact i{font-size:13px;color:var(--cyan)}
+.footer-col h4{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;color:var(--white);margin-bottom:1rem;letter-spacing:.3px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col ul a{font-size:.79rem;color:var(--muted);transition:color .2s}
+.footer-col ul a:hover{color:var(--white)}
+.footer-bottom{border-top:0.5px solid var(--border);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
+.footer-copy{font-size:.74rem;color:var(--muted2)}
+.footer-badges{display:flex;gap:.5rem}
+.fbadge{background:var(--glass);border:0.5px solid var(--border);padding:.22rem .65rem;border-radius:4px;font-size:.68rem;color:var(--muted);font-family:'Syne',sans-serif;letter-spacing:.3px}
+
+/* ─── ANIMATIONS ─── */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* ─── LOADING OVERLAY ─── */
+.loading-overlay{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:999;transition:opacity .5s}
+.loading-overlay.hidden{opacity:0;pointer-events:none}
+.loader-content{text-align:center}
+.loader-logo{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;margin-bottom:.5rem}
+.loader-logo em{color:var(--cyan);font-style:normal}
+.loader-bar{width:180px;height:2px;background:var(--border);border-radius:1px;overflow:hidden;margin:1rem auto 0}
+.loader-fill{height:100%;background:var(--cyan);width:0%;animation:load 1.2s forwards}
+@keyframes load{to{width:100%}}
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">Joma<em>inc</em></div>
+    <div style="font-size:.78rem;color:var(--muted);letter-spacing:1px;font-family:'Syne',sans-serif">AI-POWERED LOGISTICS</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">JM</div>
+    <div class="logo-name">Joma<em>inc</em></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#ai-platform">AI Platform</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#why">Why Joma</a></li>
+    <li><a href="#quote">Get Quote</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-nav-ghost" onclick="scrollTo('#ai-platform')">Upload Docs</button>
+    <button class="btn-nav-cta" onclick="scrollTo('#quote')">Get a Quote</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="blink-dot"></span>AI-Powered Customs & Freight Platform</div>
+    <h1>Efficient Logistics.<br><span class="hl">Smarter Customs.</span><br><span class="hl2">AI-Powered</span> Solutions.</h1>
+    <p class="slogan"><strong>高效物流，智能清关，AI驱动供应链</strong> &nbsp;·&nbsp; From factory floor to Amazon FBA — seamlessly cleared.</p>
+    <div class="hero-cta-row">
+      <button class="btn-hero-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})"><i class="ti ti-file-invoice"></i> Get a Freight Quote</button>
+      <button class="btn-hero-outline" onclick="document.getElementById('ai-platform').scrollIntoView({behavior:'smooth'})"><i class="ti ti-cloud-upload"></i> Upload Shipment</button>
+      <button class="btn-hero-outline" onclick="document.getElementById('ai-platform').scrollIntoView({behavior:'smooth'})"><i class="ti ti-file-check"></i> Documents Check</button>
+      <button class="btn-hero-gold" onclick="document.getElementById('ai-platform').scrollIntoView({behavior:'smooth'})"><i class="ti ti-shield-exclamation"></i> Customs Risk</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">180+</div><div class="hstat-label">Countries Served</div></div>
+      <div class="hstat"><div class="hstat-num">50K+</div><div class="hstat-label">Shipments Cleared</div></div>
+      <div class="hstat"><div class="hstat-num">99.2%</div><div class="hstat-label">On-time Clearance</div></div>
+      <div class="hstat"><div class="hstat-num">&lt; 24h</div><div class="hstat-label">AI Doc Review</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section fade-in" id="services">
+  <div class="section-inner">
+    <div class="section-label">Our Services</div>
+    <div class="section-title">End-to-End Freight & Customs</div>
+    <p class="section-sub">Six specialized services covering every link in your supply chain — from origin port to final mile.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon ic-ocean"><i class="ti ti-ship"></i></div>
+        <h3>Ocean Freight</h3>
+        <p>FCL and LCL shipments on major transpacific and transatlantic lanes. Competitive rates, real-time container tracking, and ISF filing included.</p>
+        <div class="svc-link"><i class="ti ti-arrow-right"></i> FCL & LCL Available</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-air"><i class="ti ti-plane"></i></div>
+        <h3>Air Freight</h3>
+        <p>Express and standard air cargo for time-critical shipments. Priority handling, HAWB management, and door-to-door delivery across 120+ destinations.</p>
+        <div class="svc-link"><i class="ti ti-arrow-right"></i> Express & Economy</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-customs"><i class="ti ti-building-bank"></i></div>
+        <h3>Customs Clearance Support</h3>
+        <p>Licensed CHBs handle ISF filings, HTS code classification, AD/CVD analysis, duty drawback, and FDA/USDA entry coordination.</p>
+        <div class="svc-link"><i class="ti ti-arrow-right"></i> Licensed CHB</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-fba"><i class="ti ti-box"></i></div>
+        <h3>Amazon FBA / Warehouse Delivery</h3>
+        <p>End-to-end FBA prep: FNSKU labeling, carton compliance, partnered carrier delivery appointments, and LTL/FTL to fulfillment centers.</p>
+        <div class="svc-link"><i class="ti ti-arrow-right"></i> FBA Compliant</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-truck"><i class="ti ti-truck"></i></div>
+        <h3>Trucking & Drayage</h3>
+        <p>Port drayage, transload, rail ramp pickup, and inland trucking across the continental US. Bonded and insured carriers, real-time GPS tracking.</p>
+        <div class="svc-link"><i class="ti ti-arrow-right"></i> Port-to-Door</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-aidoc"><i class="ti ti-brain"></i></div>
+        <h3>AI Document Review</h3>
+        <p>Upload your commercial invoice, packing list, or B/L and our AI instantly flags discrepancies, valuation risks, and compliance issues before filing.</p>
+        <div class="svc-link"><i class="ti ti-arrow-right"></i> Instant Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI PLATFORM -->
+<section class="section fade-in" id="ai-platform" style="padding-top:1rem">
+  <div class="section-inner">
+    <div class="ai-platform">
+      <div class="ai-top">
+        <div>
+          <div class="ai-badge"><i class="ti ti-sparkles"></i> Powered by Joma AI</div>
+          <div class="ai-title">Joma <span>AI</span> Customs &amp; Freight Assistant</div>
+          <p class="ai-desc">Upload your shipping documents. Our AI reads, extracts, risk-scores, and generates a quote summary — automatically.</p>
+        </div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-self:flex-end">
+          <span style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted);background:var(--glass);border:0.5px solid var(--border);padding:.3rem .7rem;border-radius:50px"><i class="ti ti-scan" style="color:var(--cyan);font-size:12px"></i> OCR Enabled</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted);background:var(--glass);border:0.5px solid var(--border);padding:.3rem .7rem;border-radius:50px"><i class="ti ti-shield-check" style="color:#48c378;font-size:12px"></i> HTS Lookup</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted);background:var(--glass);border:0.5px solid var(--border);padding:.3rem .7rem;border-radius:50px"><i class="ti ti-chart-bar" style="color:var(--gold);font-size:12px"></i> Risk Scoring</span>
+        </div>
+      </div>
+
+      <div class="ai-layout">
+        <!-- LEFT: Upload -->
+        <div>
+          <div class="upload-zone" id="uploadZone" onclick="triggerUpload()" ondragover="handleDrag(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+            <div class="upload-icon"><i class="ti ti-cloud-upload"></i></div>
+            <div class="upload-title">Drop your documents here</div>
+            <div class="upload-sub">or click to browse files<br>Supports PDF, JPG, PNG, XLSX, CSV</div>
+            <div class="upload-types">
+              <span class="doc-tag">Commercial Invoice</span>
+              <span class="doc-tag">Packing List</span>
+              <span class="doc-tag">Bill of Lading</span>
+              <span class="doc-tag">Air Waybill</span>
+            </div>
+          </div>
+          <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.xlsx,.csv" style="display:none" onchange="handleFiles(event)">
+          <div class="uploaded-files" id="fileList"></div>
+
+          <button class="btn-analyze" id="analyzeBtn" onclick="startAnalysis()" disabled>
+            <i class="ti ti-cpu"></i> Analyze with Joma AI
+          </button>
+          <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+
+          <div class="quote-box" id="quoteSummary" style="display:none">
+            <div class="qb-title"><i class="ti ti-file-description"></i> AI-Generated Quote Request Summary</div>
+            <div id="qbContent"></div>
+            <button style="display:flex;align-items:center;gap:6px;background:var(--cyan);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;padding:.5rem 1rem;border-radius:var(--r-sm);border:none;margin-top:.9rem;cursor:pointer;transition:opacity .2s" onmouseenter="this.style.opacity='.85'" onmouseleave="this.style.opacity='1'" onclick="submitQuote()"><i class="ti ti-send"></i> Submit Quote Request</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Analysis Tabs -->
+        <div>
+          <div class="analysis-panel">
+            <div class="panel-tabs">
+              <button class="ptab active" onclick="switchTab(this,'extracted')"><i class="ti ti-table" style="font-size:12px;margin-right:4px"></i>Extracted Data</button>
+              <button class="ptab" onclick="switchTab(this,'risk')"><i class="ti ti-shield-exclamation" style="font-size:12px;margin-right:4px"></i>Risk Flags</button>
+              <button class="ptab" onclick="switchTab(this,'chat')"><i class="ti ti-message" style="font-size:12px;margin-right:4px"></i>Ask AI</button>
+            </div>
+            <div class="panel-body">
+
+              <!-- Extracted Data Tab -->
+              <div id="tab-extracted">
+                <div id="extractedContent">
+                  <div style="text-align:center;padding:2.5rem 1rem;color:var(--muted2)">
+                    <i class="ti ti-file-upload" style="font-size:32px;display:block;margin-bottom:.7rem;opacity:.5"></i>
+                    <div style="font-size:.82rem">Upload a document to extract shipment data automatically.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Risk Tab -->
+              <div id="tab-risk" style="display:none">
+                <div id="riskContent">
+                  <div style="text-align:center;padding:2.5rem 1rem;color:var(--muted2)">
+                    <i class="ti ti-shield" style="font-size:32px;display:block;margin-bottom:.7rem;opacity:.5"></i>
+                    <div style="font-size:.82rem">Risk analysis will appear after document processing.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chat Tab -->
+              <div id="tab-chat" style="display:none">
+                <div class="chat-msgs" id="chatMsgs">
+                  <div class="cmsg">
+                    <div class="cmsg-av av-ai">AI</div>
+                    <div class="cmsg-bubble">Hello! I'm <strong>Joma AI</strong>. Upload your documents and I'll analyze them, or ask me anything about customs, HS codes, duties, or bonding requirements.</div>
+                  </div>
+                </div>
+                <div class="quick-chips">
+                  <span class="qchip" onclick="askAI(this)">Do I need a Continuous Bond?</span>
+                  <span class="qchip" onclick="askAI(this)">Check HTS code</span>
+                  <span class="qchip" onclick="askAI(this)">AD/CVD risk?</span>
+                  <span class="qchip" onclick="askAI(this)">FBA checklist</span>
+                </div>
+                <div class="chat-input-wrap">
+                  <input class="chat-inp" id="chatInp" placeholder="Ask about duties, bonds, compliance…" onkeydown="if(event.key==='Enter')sendChat()">
+                  <button class="chat-send-btn" onclick="sendChat()"><i class="ti ti-send" style="font-size:14px"></i></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section fade-in" id="industries">
+  <div class="section-inner">
+    <div class="section-label">Who We Serve</div>
+    <div class="section-title">Industries Served</div>
+    <p class="section-sub">Specialized logistics solutions for the way your business actually operates.</p>
+    <div class="industries-grid">
+      <div class="ind-card">
+        <div class="ind-icon" style="background:rgba(255,153,0,.12);color:#ff9900"><i class="ti ti-brand-amazon"></i></div>
+        <h3>Amazon Sellers</h3>
+        <p>FBA prep, inbound shipment creation, and customs clearance optimized for Amazon's strict receiving requirements.</p>
+        <ul class="ind-list">
+          <li>FNSKU & carton labeling</li>
+          <li>LTL/FTL to FC</li>
+          <li>Section 321 strategy</li>
+        </ul>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon" style="background:rgba(0,200,224,.12);color:var(--cyan)"><i class="ti ti-building-warehouse"></i></div>
+        <h3>Importers & Distributors</h3>
+        <p>High-volume importers requiring consistent clearance, duty optimization, and supply chain visibility.</p>
+        <ul class="ind-list">
+          <li>Continuous bond management</li>
+          <li>Duty drawback filing</li>
+          <li>Compliance audits</li>
+        </ul>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon" style="background:rgba(160,125,240,.12);color:#a07df0"><i class="ti ti-shopping-bag"></i></div>
+        <h3>E-commerce Brands</h3>
+        <p>DTC brands scaling globally — we handle cross-border logistics, customs compliance, and last-mile delivery.</p>
+        <ul class="ind-list">
+          <li>De minimis & Section 321</li>
+          <li>Returns management</li>
+          <li>Multi-country routing</li>
+        </ul>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon" style="background:rgba(72,195,120,.12);color:#48c378"><i class="ti ti-tools"></i></div>
+        <h3>Manufacturers</h3>
+        <p>Raw material imports, finished goods exports, and bonded warehouse solutions for production-level volumes.</p>
+        <ul class="ind-list">
+          <li>C-TPAT partnership</li>
+          <li>Foreign Trade Zones</li>
+          <li>HTS classification review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOMA -->
+<section class="section fade-in" id="why">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <div class="section-title">Built Different. Built Better.</div>
+    <p class="section-sub">We combine licensed expertise with AI technology — and we're physically in the US to back you up.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon-wrap" style="background:rgba(0,200,224,.12);color:var(--cyan)"><i class="ti ti-bolt"></i></div>
+        <div>
+          <h4>Speed</h4>
+          <p>AI-powered doc review in under 2 hours. Same-day ISF filing. 24/7 team coverage for urgent entries.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon-wrap" style="background:rgba(72,195,120,.12);color:#48c378"><i class="ti ti-certificate"></i></div>
+        <div>
+          <h4>Compliance</h4>
+          <p>Licensed Customs House Brokers. Strict CBP, FDA, and USDA adherence. AI flags non-compliance before filing.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon-wrap" style="background:rgba(245,166,35,.12);color:var(--gold)"><i class="ti ti-shield-check"></i></div>
+        <div>
+          <h4>Cargo Insurance</h4>
+          <p>Comprehensive cargo insurance coverage with competitive rates. All shipments covered door-to-door.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon-wrap" style="background:rgba(100,180,255,.12);color:#64b4ff"><i class="ti ti-map-pin"></i></div>
+        <div>
+          <h4>US-Based Support</h4>
+          <p>Headquartered in Edison, NJ. Local team available via phone, email, and chat — not just a ticketing system.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon-wrap" style="background:rgba(160,125,240,.12);color:#a07df0"><i class="ti ti-brain"></i></div>
+        <div>
+          <h4>AI-First Platform</h4>
+          <p>Proprietary AI reviews documents, classifies HTS codes, scores customs risk, and generates quote summaries automatically.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon-wrap" style="background:rgba(237,84,84,.12);color:#ed5454"><i class="ti ti-clock-hour-4"></i></div>
+        <div>
+          <h4>24/7 Availability</h4>
+          <p>Round-the-clock team ready for last-minute entries, port emergencies, and time-sensitive clearances.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="section fade-in" id="quote">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div class="section-label" style="justify-content:center;display:block">Request a Quote</div>
+      <div class="section-title">Get Your Freight Quote</div>
+      <p class="section-sub" style="margin:0 auto">Fill out the form below and our team will respond within 2 business hours.</p>
+    </div>
+    <div class="quote-section">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input class="form-input" placeholder="John Smith" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company Name</label>
+          <input class="form-input" placeholder="ABC Trading Co." type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input class="form-input" placeholder="you@company.com" type="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" placeholder="+1 (732) 000-0000" type="tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Type *</label>
+          <select class="form-select">
+            <option value="">Select a service…</option>
+            <option>Ocean Freight — FCL</option>
+            <option>Ocean Freight — LCL</option>
+            <option>Air Freight — Express</option>
+            <option>Air Freight — Standard</option>
+            <option>Customs Clearance Only</option>
+            <option>Amazon FBA Delivery</option>
+            <option>Trucking & Drayage</option>
+            <option>Full Supply Chain</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Origin Country</label>
+          <input class="form-input" placeholder="e.g. China, Vietnam, Germany" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estimated Weight (lbs/kg)</label>
+          <input class="form-input" placeholder="e.g. 500 kg or 1100 lbs" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cargo Description / HTS Code</label>
+          <input class="form-input" placeholder="e.g. Consumer electronics, 8471.30" type="text">
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Additional Notes</label>
+          <textarea class="form-textarea" placeholder="Special requirements, hazmat, temperature control, timeline…"></textarea>
+        </div>
+      </div>
+      <button class="btn-submit" onclick="handleQuoteSubmit(this)"><i class="ti ti-send"></i> Submit Quote Request</button>
+      <p style="font-size:.73rem;color:var(--muted2);text-align:center;margin-top:.8rem">We typically respond within 2 business hours · Mon–Fri 9am–6pm EST</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="section fade-in" style="padding-top:1rem">
+  <div class="section-inner">
+    <div class="compliance-box">
+      <div class="compliance-title"><i class="ti ti-alert-triangle" style="font-size:16px"></i> Compliance Notice & Disclaimer</div>
+      <p class="compliance-text">
+        Joma Logistics Incorporated provides freight forwarding and customs clearance support services. All AI-generated analysis, HTS classifications, duty estimates, and risk assessments are for informational purposes only and do not constitute legal or binding customs advice. Actual import duties, taxes, and regulatory requirements are determined by U.S. Customs and Border Protection (CBP) and applicable federal agencies at time of entry. Clients are responsible for the accuracy of all information provided for customs filings. Joma Logistics is not responsible for delays, holds, or penalties arising from inaccurate or incomplete shipper-provided documentation. Licensed customs brokerage services are provided under applicable CBP regulations. Cargo insurance terms and coverage limits are governed by the applicable policy issued at the time of shipment. By using this platform, you acknowledge that all AI-generated content requires verification by a licensed customs professional before official submission.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-logo">
+          <div class="logo-icon">JM</div>
+          <div class="logo-name">Joma<em>inc</em></div>
+        </div>
+        <p>AI-powered logistics and customs clearance for importers, Amazon sellers, and global supply chains.</p>
+        <div class="footer-contact">
+          <span><i class="ti ti-map-pin"></i> 70 Carter Dr. Edison, NJ 08817 USA</span>
+          <a href="mailto:tim@jomainc.com"><i class="ti ti-mail"></i> tim@jomainc.com</a>
+          <a href="tel:0017323388098"><i class="ti ti-phone"></i> 001-732-338-8098</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Ocean Freight</a></li>
+          <li><a href="#">Air Freight</a></li>
+          <li><a href="#">Customs Clearance</a></li>
+          <li><a href="#">Amazon FBA</a></li>
+          <li><a href="#">Trucking & Drayage</a></li>
+          <li><a href="#">AI Document Review</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>AI Platform</h4>
+        <ul>
+          <li><a href="#">Upload Documents</a></li>
+          <li><a href="#">Customs Risk Check</a></li>
+          <li><a href="#">HTS Lookup</a></li>
+          <li><a href="#">Quote Generator</a></li>
+          <li><a href="#">Joma AI Assistant</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Joma Logistics Incorporated · All rights reserved · Edison, NJ 08817 USA</div>
+      <div class="footer-badges">
+        <span class="fbadge">Licensed CHB</span>
+        <span class="fbadge">C-TPAT</span>
+        <span class="fbadge">ISO Compliant</span>
+        <span class="fbadge">AI-Powered</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── LOADER ───
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('hidden');
+  },1400);
+});
+
+// ─── SCROLL ANIMATIONS ───
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
+
+// ─── UPLOAD ZONE ───
+function triggerUpload(){document.getElementById('fileInput').click()}
+function handleDrag(e){e.preventDefault();document.getElementById('uploadZone').classList.add('drag-over')}
+function handleDragLeave(){document.getElementById('uploadZone').classList.remove('drag-over')}
+function handleDrop(e){
+  e.preventDefault();
+  document.getElementById('uploadZone').classList.remove('drag-over');
+  addFiles(e.dataTransfer.files);
+}
+function handleFiles(e){addFiles(e.target.files)}
+
+var uploadedDocs=[];
+function addFiles(files){
+  Array.from(files).forEach(f=>{
+    uploadedDocs.push(f.name);
+    var fl=document.getElementById('fileList');
+    var item=document.createElement('div');
+    item.className='file-item';
+    item.innerHTML='<i class="ti ti-file-text"></i><span class="file-name">'+f.name+'</span><span class="file-status">Ready</span>';
+    fl.appendChild(item);
+  });
+  document.getElementById('analyzeBtn').disabled=false;
+}
+
+// ─── ANALYSIS ───
+function startAnalysis(){
+  var btn=document.getElementById('analyzeBtn');
+  btn.disabled=true;
+  btn.innerHTML='<i class="ti ti-loader" style="animation:spin 1s linear infinite"></i> Analyzing…';
+  var pb=document.getElementById('progressBar');
+  var pf=document.getElementById('progressFill');
+  pb.style.display='block';
+  var w=0;
+  var t=setInterval(()=>{
+    w+=Math.random()*8+2;
+    if(w>=100){w=100;clearInterval(t);showResults()}
+    pf.style.width=w+'%';
+  },120);
+}
+
+var style=document.createElement('style');
+style.textContent='@keyframes spin{to{transform:rotate(360deg)}}';
+document.head.appendChild(style);
+
+function showResults(){
+  document.getElementById('analyzeBtn').innerHTML='<i class="ti ti-check"></i> Analysis Complete';
+  document.getElementById('analyzeBtn').style.background='#48c378';
+  // Extracted data
+  document.getElementById('extractedContent').innerHTML=`
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:1rem;font-size:.72rem;color:#48c378;font-family:'Syne',sans-serif;letter-spacing:.4px"><i class="ti ti-check" style="font-size:13px"></i> OCR COMPLETE — DATA EXTRACTED</div>
+    ${field('Shipper','Shenzhen Bright Tech Co., Ltd.','ok')}
+    ${field('Consignee','ABC Trading Inc., Edison NJ','ok')}
+    ${field('Notify Party','Joma Logistics Inc.','ok')}
+    ${field('HTS Code','8471.30.0100','warn')}
+    ${field('Description','Laptop Computers (Consumer Grade)','ok')}
+    ${field('Declared Value','USD $48,500','warn')}
+    ${field('Gross Weight','1,240 kg','ok')}
+    ${field('Packages','85 Cartons','ok')}
+    ${field('Port of Loading','Yantian, CN','ok')}
+    ${field('Port of Entry','Los Angeles, CA','ok')}
+    ${field('B/L Number','COSU6427891043','ok')}
+    ${field('Continuous Bond','Recommended','risk')}
+  `;
+  // Risk
+  document.getElementById('riskContent').innerHTML=`
+    <div style="font-size:.72rem;color:var(--muted);margin-bottom:.8rem;font-family:'Syne',sans-serif;letter-spacing:.4px">RISK ASSESSMENT — 3 FLAGS</div>
+    <div class="risk-item"><div class="risk-dot dot-red"></div><div class="risk-text"><strong>Section 301 Tariff Exposure (List 3)</strong><span>HTS 8471.30 — China-origin electronics subject to 25% additional duty. Total estimated tariff impact: ~$12,125 on declared value.</span></div></div>
+    <div class="risk-item"><div class="risk-dot dot-yellow"></div><div class="risk-text"><strong>Continuous Bond Recommended</strong><span>Declared value exceeds $25,000. A single-entry bond is insufficient for repeated imports. Continuous bond (~$500/yr) advised to avoid delays.</span></div></div>
+    <div class="risk-item"><div class="risk-dot dot-yellow"></div><div class="risk-text"><strong>ISF Filing Deadline</strong><span>Vessel ETA in 18 hours. ISF 10+2 filing required 24 hours before loading — confirm timely submission to avoid $5,000 CBP penalty.</span></div></div>
+    <div class="risk-item"><div class="risk-dot dot-green"></div><div class="risk-text"><strong>Valuation Method</strong><span>Transaction value appears consistent with declared amount. No significant under-valuation detected. Recommend keeping commercial invoice on file for 5 years.</span></div></div>
+  `;
+  // Quote summary
+  document.getElementById('quoteSummary').style.display='block';
+  document.getElementById('qbContent').innerHTML=`
+    ${qbRow('Shipper','Shenzhen Bright Tech Co.')}
+    ${qbRow('Consignee','ABC Trading Inc., NJ')}
+    ${qbRow('Service','Ocean FCL + Customs Clearance')}
+    ${qbRow('Cargo','Laptops — HTS 8471.30')}
+    ${qbRow('Weight','1,240 kg / 85 Cartons')}
+    ${qbRow('Declared Value','USD $48,500')}
+    ${qbRow('Est. Duties','~$12,125 (Section 301)')}
+    ${qbRow('Bond Required','Continuous Bond')}
+    ${qbRow('POL → POE','Yantian → Los Angeles')}
+    ${qbRow('Quote Status','Pending Review by Joma Team')}
+  `;
+  // Switch to extracted tab
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ptab')[0].classList.add('active');
+  showTabContent('extracted');
+}
+
+function field(label,val,status){
+  var tagHtml='';
+  if(status==='ok')tagHtml='<span class="ef-tag tag-ok">✓ OK</span>';
+  if(status==='warn')tagHtml='<span class="ef-tag tag-warn">⚠ Review</span>';
+  if(status==='risk')tagHtml='<span class="ef-tag tag-risk">⚡ Required</span>';
+  return `<div class="extracted-field"><span class="ef-label">${label}</span><div style="display:flex;align-items:center;gap:6px;justify-content:flex-end;flex-wrap:wrap"><span class="ef-value">${val}</span>${tagHtml}</div></div>`;
+}
+function qbRow(k,v){return `<div class="qb-row"><span class="qb-key">${k}</span><span class="qb-val">${v}</span></div>`;}
+
+// ─── TABS ───
+function switchTab(btn,tab){
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  showTabContent(tab);
+}
+function showTabContent(tab){
+  ['extracted','risk','chat'].forEach(t=>{
+    var el=document.getElementById('tab-'+t);
+    if(el)el.style.display=t===tab?'block':'none';
+  });
+}
+
+// ─── CHAT ───
+var chatReplies={
+  'continuous bond':'A Continuous Bond is a standing surety bond that covers all CBP entries for a 12-month period. It\'s recommended when your annual import duties exceed $10,000 or when you import regularly. Based on your shipment\'s declared value of $48,500 with Section 301 exposure, a Continuous Bond (~$500/yr) is strongly advised.',
+  'hts':'Your uploaded document shows HTS 8471.30.0100 for laptop computers. This falls under List 3 Section 301 tariffs from China — currently at 25% additional duty. I recommend confirming the exact 10-digit HTS with a licensed CHB before filing.',
+  'ad/cvd':'Laptops (HTS 8471.30) are not currently subject to Antidumping or Countervailing Duty (AD/CVD) orders from China. However, components inside the unit (e.g., displays, batteries) may have separate classifications. Would you like me to check the BOM?',
+  'fba':'For Amazon FBA, each carton needs a FNSKU-labeled scannable barcode on the outside, and each unit must be in a poly bag or sufficiently packaged. You\'ll also need to create an inbound shipment plan in Seller Central before booking a delivery appointment at the FC. Joma handles labeling, prep, and delivery.',
+  'default':'That\'s a great question! Could you provide more details about your specific shipment or concern? I can help with HTS classification, duty calculation, bond requirements, FBA compliance, ISF filing, or document review.'
+};
+
+function sendChat(){
+  var inp=document.getElementById('chatInp');
+  var txt=inp.value.trim();if(!txt)return;
+  addChatMsg(txt,'user');inp.value='';
+  switchTab(document.querySelectorAll('.ptab')[2],'chat');
+  setTimeout(()=>{
+    var k='default';var tl=txt.toLowerCase();
+    if(tl.includes('bond'))k='continuous bond';
+    else if(tl.includes('hts')||tl.includes('code'))k='hts';
+    else if(tl.includes('ad/')||tl.includes('cvd')||tl.includes('dumping'))k='ad/cvd';
+    else if(tl.includes('fba')||tl.includes('amazon'))k='fba';
+    addChatMsg(chatReplies[k],'ai');
+  },700);
+}
+function askAI(el){document.getElementById('chatInp').value=el.textContent;sendChat();}
+function addChatMsg(text,role){
+  var msgs=document.getElementById('chatMsgs');
+  var d=document.createElement('div');
+  d.className='cmsg'+(role==='user'?' user':'');
+  var av=document.createElement('div');
+  av.className='cmsg-av '+(role==='user'?'av-user':'av-ai');
+  av.innerHTML=role==='user'?'<i class="ti ti-user" style="font-size:11px"></i>':'AI';
+  var b=document.createElement('div');b.className='cmsg-bubble';b.textContent=text;
+  if(role==='user'){d.appendChild(b);d.appendChild(av);}
+  else{d.appendChild(av);d.appendChild(b);}
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+}
+
+// ─── QUOTE FORM ───
+function handleQuoteSubmit(btn){
+  btn.innerHTML='<i class="ti ti-check"></i> Request Submitted!';
+  btn.style.background='#48c378';btn.disabled=true;
+}
+function submitQuote(){
+  document.getElementById('quote').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
